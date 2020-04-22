@@ -1,4 +1,4 @@
-# senior-projects
+# Citations
 Here are the citations for each of the codes I have refered to
 
 
