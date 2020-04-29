@@ -1,13 +1,13 @@
 #include <Servo.h>
 
 //Define servos
-Servo servot;         //thumb
-Servo servoi;         //index
-Servo servom;         //middle
-Servo servor;         //ring
-Servo servop;         //pinky
-Servo servowud;       //wirst up-down
-Servo servowr;        //wrist rotation
+Servo servo13;        //thumb
+Servo servo11;        //index
+Servo servo9;         //middle
+Servo servo7;         //ring
+Servo servo5;         //pinky
+Servo servo3;         //wirst up-down
+Servo servo2;         //wrist rotation
 
 int pos = 0;
 
@@ -15,46 +15,51 @@ int val;
 
 //Define initial positions of servo
 int pos0 = 0;
-int pos180 = 180;
-int post360 = 360;
+int pos90 = 90;
+int post120 = 120;
 
-int speed_ = 10;
+int speed_ = 5;
 
 void setup() {
- Serial.begin(9600);
  
- //attaching servos to pins
- servot.attach(13);
- servoi.attach(11);
- servom.attach(9);
- servor.attach(7);
- servop.attach(5);
- servowud.attach(3);
- servowr.attach(2);
+Serial.begin(9600);
+ 
+//attaching servos to pins
+servo13.attach(13);
+servo11.attach(11);
+servo9.attach(9);
+servo7.attach(7);
+servo5.attach(5);
+servo3.attach(3);
+servo2.attach(2);
+
+//define initial positions
+servo13.write(pos0);
+servo11.write(pos0);
+servo9.write(pos0);
+servo7.write(pos0);
+servo5.write(pos0);
+servo3.write(pos0);
+servo2.write(pos0);
+
 }
 
-void loop() {
+void loop() 
+
+{
   if(Serial.available())
   
   {
     val=Serial.read();
     if(val=='w')
     {
-      for (pos = 0; pos <= 180; pos += 1) 
+      for (pos = 0; pos <= 90; pos += 1) 
       { 
-       servot.write(pos);              
-       delay(10); 
+       servo13.write(pos);              
+       delay(25); 
+       servo13.detach();
+       delay(1000);
       }
-    {
-    if(val=='s')
-    { 
-      for (pos = 180; pos >= 0; pos -= 1)
-      { 
-      servot.write(pos);              
-      delay(2.5);       
     }
-  }
-  }
-}
   }
 }
