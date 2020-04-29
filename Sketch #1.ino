@@ -57,8 +57,6 @@ void loop()
       { 
        servo13.write(pos);              
        delay(25); 
-       servo13.detach();
-       delay(1000);
       }
     }
   }
