@@ -1,3 +1,4 @@
+//Servo Libary
 #include <Servo.h>
 
 //Define servos
@@ -52,12 +53,10 @@ void loop()
     val=Serial.read();
     if(val=='w')
     {
-      for (pos = 0; pos <= 90; pos += 1) 
+      for (pos = 0; pos <= 100; pos += 1) 
       { 
        servo13.write(pos);              
-       delay(25); 
-       servo13.detach();
-       delay(1000);
+       delay(15); 
       }
     }
   }
@@ -65,11 +64,11 @@ void loop()
     val=Serial.read();
     if(val=='s')
     {
-      for (pos = 180; pos <= 0; pos -= 1) 
+      for (pos = 100; pos >= 0; pos -= 1) 
       { 
        servo13.write(pos);              
        delay(15); 
       }
     }
-  } 
+  }  
 }
